@@ -1,17 +1,32 @@
 package com.patricknymark.users;
 
+import java.util.ArrayList;
+
 public class Member extends User {
     private boolean isActive;
     private boolean isElite;
     private boolean isSenior;
     private boolean seniorDiscount;
-    private String[] disciplines;
+    private Coach coach;
+    private ArrayList<String> disciplines;
 
-    public Member(String firstName, String lastName, String phoneNumber, String email, int age, boolean isElite, String[] disciplines) {
-        super(firstName, lastName, phoneNumber, email, age);
+
+    public Member(String firstName, String lastName, String phoneNumber, String email, int age, String password, ArrayList<String> disciplines) {
+        super(firstName, lastName, phoneNumber, email, age, password);
         this.disciplines = disciplines;
-        this.isElite = isElite;
         this.isActive = true;
+        this.isElite = false;
+
+        setMembership();
+    }
+
+    public Member(String firstName, String lastName, String phoneNumber, String email, int age, String password, Coach coach, ArrayList<String> disciplines) {
+        super(firstName, lastName, phoneNumber, email, age, password);
+        this.disciplines = disciplines;
+        this.coach = coach;
+        this.isElite = true;
+        this.isActive = true;
+
 
         setMembership();
     }
@@ -25,6 +40,27 @@ public class Member extends User {
             this.isSenior = true;
             this.seniorDiscount = true;
         }
+    }
+
+    // GETTERS
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public boolean isSenior() {
+        return isSenior;
+    }
+
+    public boolean isSeniorDiscount() {
+        return seniorDiscount;
+    }
+
+    public boolean isElite() {
+        return isElite;
+    }
+
+    public Coach getCoach() {
+        return coach;
     }
 
 

@@ -7,12 +7,25 @@ public abstract class User {
     private String email;
     private int age;
 
-    public User(String firstName, String lastName, String phoneNumber, String email, int age) {
+    private String password;
+
+    private int userID;
+
+    private static int id = 1000;
+
+    public User(String firstName, String lastName, String phoneNumber, String email, int age, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.age = age;
+        this.password = password;
+
+        generateID();
+    }
+
+    private void generateID() {
+        this.userID = id++;
     }
 
     // GETTERS
@@ -34,6 +47,14 @@ public abstract class User {
 
     public int getAge() {
         return age;
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     // SETTERS
