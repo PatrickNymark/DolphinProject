@@ -1,6 +1,7 @@
 package com.patricknymark.views;
 
 import com.patricknymark.database.Database;
+import com.patricknymark.users.Manager;
 import com.patricknymark.users.Member;
 
 import java.util.Scanner;
@@ -19,6 +20,8 @@ public class ManagerView {
             if(option.equalsIgnoreCase("Q")) {
                 quit = true;
             }
+
+
         }
     }
 

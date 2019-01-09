@@ -6,13 +6,12 @@ public abstract class User {
     private String phoneNumber;
     private String email;
     private int age;
-
     private String password;
-
     private int userID;
 
     private static int id = 1000;
 
+    // Constructor
     public User(String firstName, String lastName, String phoneNumber, String email, int age, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -21,9 +20,12 @@ public abstract class User {
         this.age = age;
         this.password = password;
 
+        // Calling it here to generate the userID each time a class is created.
         generateID();
     }
 
+    // Sets the userID as id + 1
+    // id is static therefore belongs to the class it self and not the instances that we create with the new keyword.
     private void generateID() {
         this.userID = id++;
     }
